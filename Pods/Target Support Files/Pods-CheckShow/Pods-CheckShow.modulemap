@@ -1,0 +1,6 @@
+framework module Pods_CheckShow {
+  umbrella header "Pods-CheckShow-umbrella.h"
+
+  export *
+  module * { export * }
+}
