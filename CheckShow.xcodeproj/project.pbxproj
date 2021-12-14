@@ -7,22 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B70A57582768FEB000A42A88 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70A57572768FEB000A42A88 /* HomeView.swift */; };
 		B73A1DC827650B3100B2777F /* CheckShowApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73A1DC727650B3100B2777F /* CheckShowApp.swift */; };
 		B73A1DCA27650B3100B2777F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73A1DC927650B3100B2777F /* ContentView.swift */; };
 		B73A1DCC27650B3100B2777F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B73A1DCB27650B3100B2777F /* Assets.xcassets */; };
 		B73A1DCF27650B3100B2777F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B73A1DCE27650B3100B2777F /* Preview Assets.xcassets */; };
-		B752C548276714AF00250167 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = B752C547276714AF00250167 /* .swiftlint.yml */; };
 		F2E0BF7D7E2813CAF18F29BF /* Pods_CheckShow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 923E5C8BD05D106112319A8A /* Pods_CheckShow.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		923E5C8BD05D106112319A8A /* Pods_CheckShow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheckShow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B70A57572768FEB000A42A88 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		B73A1DC427650B3100B2777F /* CheckShow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheckShow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B73A1DC727650B3100B2777F /* CheckShowApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckShowApp.swift; sourceTree = "<group>"; };
 		B73A1DC927650B3100B2777F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B73A1DCB27650B3100B2777F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B73A1DCE27650B3100B2777F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		B752C547276714AF00250167 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		C0D0E7CF55B253D16BE5AF5F /* Pods-CheckShow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckShow.release.xcconfig"; path = "Target Support Files/Pods-CheckShow/Pods-CheckShow.release.xcconfig"; sourceTree = "<group>"; };
 		CFC48A6EE4FCA0651A58EC72 /* Pods-CheckShow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckShow.debug.xcconfig"; path = "Target Support Files/Pods-CheckShow/Pods-CheckShow.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -47,6 +47,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B70A57562768E66800A42A88 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B73A1DC927650B3100B2777F /* ContentView.swift */,
+				B70A57572768FEB000A42A88 /* HomeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		B73A1DBB27650B3100B2777F = {
 			isa = PBXGroup;
 			children = (
@@ -68,9 +77,8 @@
 		B73A1DC627650B3100B2777F /* CheckShow */ = {
 			isa = PBXGroup;
 			children = (
+				B70A57562768E66800A42A88 /* View */,
 				B73A1DC727650B3100B2777F /* CheckShowApp.swift */,
-				B73A1DC927650B3100B2777F /* ContentView.swift */,
-				B752C547276714AF00250167 /* .swiftlint.yml */,
 				B73A1DCB27650B3100B2777F /* Assets.xcassets */,
 				B73A1DCD27650B3100B2777F /* Preview Content */,
 			);
@@ -154,7 +162,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B752C548276714AF00250167 /* .swiftlint.yml in Resources */,
 				B73A1DCF27650B3100B2777F /* Preview Assets.xcassets in Resources */,
 				B73A1DCC27650B3100B2777F /* Assets.xcassets in Resources */,
 			);
@@ -200,7 +207,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n${PODS_ROOT}/SwiftLint/swiftlint\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n${PODS_ROOT}/SwiftLint/swiftlint autocorrect\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -209,6 +216,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B70A57582768FEB000A42A88 /* HomeView.swift in Sources */,
 				B73A1DCA27650B3100B2777F /* ContentView.swift in Sources */,
 				B73A1DC827650B3100B2777F /* CheckShowApp.swift in Sources */,
 			);
