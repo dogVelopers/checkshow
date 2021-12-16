@@ -12,6 +12,7 @@ struct HomeView: View {
 
     var body: some View {
         VStack {
+            // navbar
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
                     ForEach(0..<viewModel.getCategoryCount()) {i in
@@ -38,11 +39,6 @@ struct HomeView: View {
         }
     }
 }
-
-func onClick() {
-    print("onClick")
-}
-
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
