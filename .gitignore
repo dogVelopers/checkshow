@@ -1,2 +1,4 @@
 
 CheckShow.xcworkspace/xcuserdata/judongseok.xcuserdatad/UserInterfaceState.xcuserstate
+*.xcworkspace
+.DS_Store
