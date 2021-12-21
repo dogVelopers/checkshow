@@ -17,11 +17,33 @@ struct AllContentView: View {
             ScrollView(.horizontal, showsIndicators: false, content: {
                 HStack {
                     ForEach(1..<10) { i in
-                        Image("post\(i)")
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: 100, height: 130, alignment: .center)
-                            .cornerRadius(8)
+                        VStack(spacing: 5) {
+                            ZStack(alignment: .bottomLeading) {
+                                Image("post\(i)")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: 100, height: 130, alignment: .center)
+                                    .cornerRadius(8)
+                                Rectangle()
+                                    .frame(width: 25, height: 25, alignment: .center)
+                                    .opacity(0.85)
+                                    .cornerRadius(4)
+                                    .padding(4)
+                                Text("\(i)")
+                                    .frame(width: 25, height: 25, alignment: .center)
+                                    .padding(4)
+                                    .foregroundColor(.white)
+                                    .font(.system(size: 17, weight: .bold, design: .default))
+                            }
+                            Text("Text입니다 \(i) 요롱롱")
+                                .font(.system(size: 14))
+                                .frame(maxWidth: .infinity, alignment: .topLeading)
+                            Text("예상★3.9")
+                                .font(.system(size: 14))
+                                .foregroundColor(.pink)
+                                .frame(maxWidth: .infinity, alignment: .topLeading)
+                        }
+                        .frame(width: 100, height: 200, alignment: .topLeading)
                     }
                 }
                 .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
