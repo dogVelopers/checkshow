@@ -30,7 +30,7 @@ struct HomeView: View {
                         Text("Musical")
                     }
                 } label: {
-                     Image(systemName: "line.3.horizontal.decrease.circle")
+                    Image(systemName: "line.3.horizontal.decrease.circle")
                         .resizable()
                         .frame(width: 20, height: 20, alignment: .center)
                 }
