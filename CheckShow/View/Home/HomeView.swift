@@ -13,29 +13,30 @@ struct HomeView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             // navbar
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack {
-                    ForEach(0..<self.viewModel.getCategoryCount()) { i in
-                        Button(action: {
-                            withAnimation {
-                                self.viewModel.setClickedCategory(n: i)
-                            }
-                        }) {
-                            Text(viewModel.getCategory(n: i))
-                                .font(.system(size: 25, weight: .bold))
-                                .padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 8))
-                                .foregroundColor(i == viewModel.getClickedCategory() ? .black : .gray)
-
-                        }
-                        if i < viewModel.getCategoryCount() - 1 {
-                            Text("|")
-                                .foregroundColor(.gray)
-                                .padding(EdgeInsets(top: 0, leading: 0, bottom: 3, trailing: 0))
-                        }
+            HStack {
+                Text("Perfomence")
+                    .font(.system(size: 20))
+                    .fontWeight(.bold)
+                Spacer()
+                Menu {
+                    Button {
+                        // 데이터 교체 로직
+                    } label: {
+                        Text("ALL")
                     }
+                    Button {
+                        // 데이터 교체 로지
+                    } label: {
+                        Text("Musical")
+                    }
+                } label: {
+                     Image(systemName: "line.3.horizontal.decrease.circle")
+                        .resizable()
+                        .frame(width: 20, height: 20, alignment: .center)
                 }
-                .padding(EdgeInsets(top: 10, leading: 8, bottom: 0, trailing: 0))
             }
+            .padding(EdgeInsets(top: 0, leading: 50, bottom: 40, trailing: 50))
+
             // contentview
             HStack(spacing: 0) {
                 if self.viewModel.getClickedCategory() == 0 {
@@ -58,8 +59,8 @@ struct HomeView: View {
                     CategoryContentView(category: "오픈런")
                 }
             }
-            Divider()
         }
+        .frame(height: UIScreen.screenHeight * 0.75)
     }
 }
 struct HomeView_Previews: PreviewProvider {
