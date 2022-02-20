@@ -23,17 +23,18 @@ struct TabItem: View {
 struct ContentView: View {
     var body: some View {
         VStack {
-            TabView {
-                HomeView()
-                    .tabItem {
-                        Image(systemName: "house")
-                        Text("홈")
-                    }
-                TabItem(title: "검색", image: "magnifyingglass")
-                TabItem(title: "평가", image: "star")
-                TabItem(title: "소식", image: "ellipsis.bubble.fill")
-                TabItem(title: "마이페이지", image: "person.fill")
-            }
+            HomeView()
+//            TabView {
+//                HomeView()
+//                    .tabItem {
+//                        Image(systemName: "house")
+//                        Text("홈")
+//                    }
+//                TabItem(title: "검색", image: "magnifyingglass")
+//                TabItem(title: "평가", image: "star")
+//                TabItem(title: "소식", image: "ellipsis.bubble.fill")
+//                TabItem(title: "마이페이지", image: "person.fill")
+//            }
 
         }
     }
