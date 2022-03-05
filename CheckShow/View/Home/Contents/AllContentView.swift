@@ -88,6 +88,24 @@ struct AllContentView: View {
             .shadow(color: Color(.sRGB, red: 0, green: 0, blue: 0, opacity: 0.3), radius: 4, x: 0, y: 4)
             Spacer()
         }
+        .onAppear(perform: {
+            GetPerformance.shared.getPersonInfo(genreId: 1) { [self] response in
+                switch response {
+                case .success(let data):
+                    if let data = data as? [performance] {
+                        performances = data
+                    }
+                case .requestErr:
+                    print("requestErr")
+                case .pathErr:
+                    print("pathErr")
+                case .serverErr:
+                    print("serverErr")
+                case .networkFail:
+                    print("networkErr")
+                }
+            }
+        })
         .onChange(of: id) { _ in
             GetPerformance.shared.getPersonInfo(genreId: id) { [self] response in
                 switch response {

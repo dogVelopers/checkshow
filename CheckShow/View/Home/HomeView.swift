@@ -9,13 +9,13 @@ import SwiftUI
 
 struct HomeView: View {
     @StateObject var viewModel = HomeViewModel()
-    @State var id = 0
+    @State var id = 1
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             // navbar
             HStack {
-                Text("Perfomence")
+                Text(viewModel.category[id - 1])
                     .font(.system(size: 20))
                     .fontWeight(.bold)
                 Spacer()
