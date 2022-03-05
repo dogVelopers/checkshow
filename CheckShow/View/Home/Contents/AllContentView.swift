@@ -8,35 +8,17 @@
 import SwiftUI
 
 struct AllContentView: View {
-    @ObservedObject var viewModel = ContentsVM()
+    @State var performances: [performance] = []
+    @Binding var id: Int
     @State private var showingSheet = false
-
-    init() {
-        GetPerformance.shared.getPersonInfo { [self] response in
-            switch response {
-            case .success(let data):
-                if let data = data as? [performance] {
-                    viewModel.performances = data
-                }
-            case .requestErr:
-                print("requestErr")
-            case .pathErr:
-                print("pathErr")
-            case .serverErr:
-                print("serverErr")
-            case .networkFail:
-                print("networkErr")
-            }
-        }
-    }
 
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
-            if !viewModel.performances.isEmpty {
+            if !performances.isEmpty {
                 ScrollView(.horizontal, showsIndicators: false, content: {
                     HStack {
                         TabView {
-                            ForEach(viewModel.performances, id: \.id) { i in
+                            ForEach(performances, id: \.id) { i in
                                 VStack(spacing: 5) {
                                     ZStack(alignment: .bottomLeading) {
                                         AsyncImage(url: URL(string: i.posterUrl))
@@ -81,6 +63,7 @@ struct AllContentView: View {
                             .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
                         }
                         .tabViewStyle(PageTabViewStyle())
+                        .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .never))
                         .frame(width: UIScreen.screenWidth, height: 500, alignment: .center)
                     }
                 })
@@ -105,11 +88,29 @@ struct AllContentView: View {
             .shadow(color: Color(.sRGB, red: 0, green: 0, blue: 0, opacity: 0.3), radius: 4, x: 0, y: 4)
             Spacer()
         }
+        .onChange(of: id) { _ in
+            GetPerformance.shared.getPersonInfo(genreId: id) { [self] response in
+                switch response {
+                case .success(let data):
+                    if let data = data as? [performance] {
+                        performances = data
+                    }
+                case .requestErr:
+                    print("requestErr")
+                case .pathErr:
+                    print("pathErr")
+                case .serverErr:
+                    print("serverErr")
+                case .networkFail:
+                    print("networkErr")
+                }
+            }
+        }
     }
 }
 
 struct AllContentView_Previews: PreviewProvider {
     static var previews: some View {
-        AllContentView()
+        AllContentView(id: .constant(1))
     }
 }
