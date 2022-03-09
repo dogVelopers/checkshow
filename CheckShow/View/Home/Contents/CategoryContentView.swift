@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CategoryContentView: View {
     @State var category: String
+
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             Text(category)
