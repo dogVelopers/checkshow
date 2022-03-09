@@ -18,6 +18,7 @@
 		B76DF561276CC33D005CA5FC /* AllContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76DF560276CC33D005CA5FC /* AllContentView.swift */; };
 		B78D071B27C251F1007DA27B /* GetPerformance.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78D071A27C251F1007DA27B /* GetPerformance.swift */; };
 		B7CBCA9A27C25BA500D90023 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CBCA9927C25BA500D90023 /* DetailView.swift */; };
+		B7DB341A27D597CA00C10494 /* HalfModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DB341927D597CA00C10494 /* HalfModalView.swift */; };
 		B7DB7BF8276CE52800F85724 /* CategoryContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DB7BF7276CE52800F85724 /* CategoryContentView.swift */; };
 		F2E0BF7D7E2813CAF18F29BF /* Pods_CheckShow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 923E5C8BD05D106112319A8A /* Pods_CheckShow.framework */; };
 /* End PBXBuildFile section */
@@ -37,6 +38,7 @@
 		B78D071A27C251F1007DA27B /* GetPerformance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPerformance.swift; sourceTree = "<group>"; };
 		B78D071C27C256FF007DA27B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B7CBCA9927C25BA500D90023 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		B7DB341927D597CA00C10494 /* HalfModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfModalView.swift; sourceTree = "<group>"; };
 		B7DB7BF7276CE52800F85724 /* CategoryContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryContentView.swift; sourceTree = "<group>"; };
 		C0D0E7CF55B253D16BE5AF5F /* Pods-CheckShow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckShow.release.xcconfig"; path = "Target Support Files/Pods-CheckShow/Pods-CheckShow.release.xcconfig"; sourceTree = "<group>"; };
 		CFC48A6EE4FCA0651A58EC72 /* Pods-CheckShow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheckShow.debug.xcconfig"; path = "Target Support Files/Pods-CheckShow/Pods-CheckShow.debug.xcconfig"; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				B7CBCA9927C25BA500D90023 /* DetailView.swift */,
+				B7DB341927D597CA00C10494 /* HalfModalView.swift */,
 			);
 			path = DetailView;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 			files = (
 				B70A57582768FEB000A42A88 /* HomeView.swift in Sources */,
 				B78D071B27C251F1007DA27B /* GetPerformance.swift in Sources */,
+				B7DB341A27D597CA00C10494 /* HalfModalView.swift in Sources */,
 				B73FFBA7276BA43B00C792F1 /* Extension+UIScreen.swift in Sources */,
 				B7CBCA9A27C25BA500D90023 /* DetailView.swift in Sources */,
 				B73A1DCA27650B3100B2777F /* ContentView.swift in Sources */,
