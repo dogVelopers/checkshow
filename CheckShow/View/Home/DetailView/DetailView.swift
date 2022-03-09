@@ -8,13 +8,44 @@
 import SwiftUI
 
 struct DetailView: View {
+    var item: performance
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
+        VStack(alignment: .leading) {
+            HStack {
+                AsyncImage(url: URL(string: item.posterUrl)) { image in
+                    image
+                        .resizable()
+                        .scaledToFill()
+                } placeholder: {
+                    Color.purple.opacity(0.1)
+                }
+                .frame(width: 100, height: 150)
+                .cornerRadius(8)
+                .shadow(color: Color(.sRGB, red: 0, green: 0, blue: 0, opacity: 0.6), radius: 10, x: 0, y: 8)
+                .padding(.trailing, 30)
 
-struct detailView_Previews: PreviewProvider {
-    static var previews: some View {
-        DetailView()
+                VStack(alignment: .leading) {
+                    Text(item.performanceName)
+                        .font(.system(size: 25))
+                        .fontWeight(.semibold)
+                        .padding(.bottom, 5)
+                    Text(item.genreName)
+                        .font(.system(size: 15))
+                        .fontWeight(.regular)
+                        .padding(.bottom, 5)
+                    Text(item.runtime)
+                        .font(.system(size: 15))
+                        .fontWeight(.regular)
+                        .padding(.bottom, 5)
+                    Text(item.facilityDetailName)
+                        .font(.system(size: 15))
+                }
+
+                Spacer()
+            }
+            .frame(width: UIScreen.main.bounds.width - 48)
+
+            Text(item.story)
+        }
     }
 }

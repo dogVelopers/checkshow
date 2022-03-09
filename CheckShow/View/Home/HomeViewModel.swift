@@ -8,7 +8,7 @@
 import SwiftUI
 
 class HomeViewModel: ObservableObject {
-    let category = ["Drama", "Musical", "Classic", "Opera", "Dancing", "Traditional Korean music", "ETC"]
+    let category = ["Drama", "Musical", "Dancing", "Classic", "Opera", "Traditional Korean music", "ETC"]
     @Published private var clickedCategory: Int = 0
 
     func getClickedCategory() -> Int {
