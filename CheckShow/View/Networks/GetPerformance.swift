@@ -116,7 +116,13 @@ class GetPerformance {
 
         // data를 우리가 만들어둔 PersonDataModel 형으로 decode 해준다.
         // 실패하면 pathErr로 빼고, 성공하면 decodedData에 값을 뺍니다.
-        guard let decodedData = try? decoder.decode([performance].self, from: data) else { return .pathErr }
+        guard var decodedData = try? decoder.decode([performance].self, from: data) else { return .pathErr }
+
+        for i in 0..<decodedData.count {
+            if decodedData[i].introImages.isEmpty {
+                decodedData[i].introImages.append(images(url: "star"))
+            }
+        }
 
         // 성공적으로 decode를 마치면 success에다가 data 부분을 담아서 completion을 호출합니다.
         return .success(decodedData)

@@ -12,15 +12,18 @@ struct DetailView: View {
     var body: some View {
         VStack(alignment: .leading) {
             ScrollView {
-                AsyncImage(url: URL(string: item.introImages[0].url)) { phase in
-                    if let image = phase.image {
+                AsyncImage(url: URL(string: item.introImages[0].url)) { image in
+                    if let image = image.image {
                         image
                             .resizable()
                             .scaledToFit()
+                    } else if image.error != nil {
+                        // 이미지가 비어있는 경우
+                        Image(systemName: "star")
                     }
                 }
             }
-
+            
 //            HStack {
 //                AsyncImage(url: URL(string: item.posterUrl)) { image in
 //                    image
