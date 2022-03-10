@@ -16,6 +16,10 @@ enum NetworkResult<T> {
     case networkFail
 }
 
+struct images: Decodable {
+    var url: String
+}
+
 struct performance: Decodable {
     var id: String
     var genreName: String
@@ -35,6 +39,10 @@ struct performance: Decodable {
     var openRun: Bool
     var createdDate: String
     var modifiedDate: String
+    var genreComment: String
+    var guName: String
+    var rankNumber: Int
+    var introImages: [images]
 }
 
 class GetPerformance {
@@ -49,7 +57,7 @@ class GetPerformance {
         // 데이터를 받아오려는 주소를 정의
         // 필요한 헤더를 Key - Value 형태로 작성
         // 보통 json 형태로 받아오기 위해서는 해당 header를 작성함
-        let URL = "http://ec2-52-79-82-153.ap-northeast-2.compute.amazonaws.com:8080/api/performances?age=15&stateId=2&genreId=\(genreId)&sort=age,desc&onlyContent=true"
+        let URL = "http://ec2-52-79-82-153.ap-northeast-2.compute.amazonaws.com:8080/api/rankings?genreId=\(genreId)&guCode=11"
         let header: HTTPHeaders = ["Content-Type": "application/x-www-form-urlencoded"]
 
         // ** "나 요렇게 통신 요청 보낼거야!!" 라고 적어둔 요청서라고 보면 됨
@@ -108,7 +116,13 @@ class GetPerformance {
 
         // data를 우리가 만들어둔 PersonDataModel 형으로 decode 해준다.
         // 실패하면 pathErr로 빼고, 성공하면 decodedData에 값을 뺍니다.
-        guard let decodedData = try? decoder.decode([performance].self, from: data) else { return .pathErr }
+        guard var decodedData = try? decoder.decode([performance].self, from: data) else { return .pathErr }
+
+        for i in 0..<decodedData.count {
+            if decodedData[i].introImages.isEmpty {
+                decodedData[i].introImages.append(images(url: "star"))
+            }
+        }
 
         // 성공적으로 decode를 마치면 success에다가 data 부분을 담아서 completion을 호출합니다.
         return .success(decodedData)
