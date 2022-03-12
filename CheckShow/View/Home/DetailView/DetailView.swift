@@ -19,11 +19,30 @@ struct DetailView: View {
                             .scaledToFit()
                     } else if image.error != nil {
                         // 이미지가 비어있는 경우
-                        Image(systemName: "star")
+                        HStack(alignment: .center) {
+                            Text("해당 공연은 준비된 포스터가 없어요 :( \n더보기를 통해 상세 정보를 확인해 보세요.")
+                                .lineLimit(3)
+                                .multilineTextAlignment(.center)
+                                .lineSpacing(10)
+                                .font(.system(size: 20, weight: .bold))
+                        }
+                        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.7, alignment: .center)
                     }
                 }
             }
-            
+            .padding(0)
+
+            Link(destination: URL(string: "https://www.kopis.or.kr/por/db/pblprfr/pblprfrView.do?menuId=MNU_00020&mt20Id=\(item.id)")!) {
+                VStack(alignment: .center) {
+                    Text("더보기")
+                        .font(.system(size: 18))
+                        .fontWeight(.bold)
+                        .frame(width: UIScreen.main.bounds.width, height: 40, alignment: .center)
+                        .foregroundColor(.black)
+                        .background(.white)
+                }
+            }
+
 //            HStack {
 //                AsyncImage(url: URL(string: item.posterUrl)) { image in
 //                    image
